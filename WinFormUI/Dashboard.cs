@@ -23,10 +23,10 @@ namespace WinFormUI
 
         private void PopulateCartWithDemoData()
         {
-            cart.Items.Add(new ProductModel { ItemName = "Cereal", Price = 3.63M });
-            cart.Items.Add(new ProductModel { ItemName = "Milk", Price = 2.95M });
-            cart.Items.Add(new ProductModel { ItemName = "Strawberries", Price = 7.51M });
-            cart.Items.Add(new ProductModel { ItemName = "Blueberries", Price = 8.84M });
+            cart.ListProductItem.Add(new ProductModel { ItemName = "Cereal", Price = 3.63M });
+            cart.ListProductItem.Add(new ProductModel { ItemName = "Milk", Price = 2.95M });
+            cart.ListProductItem.Add(new ProductModel { ItemName = "Strawberries", Price = 7.51M });
+            cart.ListProductItem.Add(new ProductModel { ItemName = "Blueberries", Price = 8.84M });
         }
 
         private void messageBoxDemoButton_Click(object sender, EventArgs e)

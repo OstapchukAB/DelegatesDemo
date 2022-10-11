@@ -17,7 +17,7 @@ namespace DemoLibrary
         /// <summary>
         /// Список товаров в корзине
         /// </summary>
-        public List<ProductModel> Items { get; set; } = new List<ProductModel>();
+        public List<ProductModel> ListProductItem { get; set; } = new List<ProductModel>();
 
         /// <summary>
         /// Расчет итоговой суммы со скидкой
@@ -30,14 +30,14 @@ namespace DemoLibrary
             Func<List<ProductModel>,decimal,decimal> calculateDiscountedTotal,
             Action<string> tellUserWeAreDiscounting)
         {
-            decimal subTotal = Items.Sum(x => x.Price);
+            decimal subTotal = ListProductItem.Sum(x => x.Price);
 
             mentionSubtotal(subTotal);
 
             
             tellUserWeAreDiscounting("Скидка применена!");
 
-            decimal total = calculateDiscountedTotal(Items, subTotal);
+            decimal total = calculateDiscountedTotal(ListProductItem, subTotal);
 
             return total;
         }

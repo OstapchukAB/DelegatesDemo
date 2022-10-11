@@ -78,10 +78,10 @@ namespace ConsoleUI
        /// <summary>
        /// Расчитываем скидку по алгоритму и возвращаем сумму со скидкой
        /// </summary>
-       /// <param name="items"></param>
-       /// <param name="subTotal"></param>
+       /// <param name="ListProducts">Список продуктов</param>
+       /// <param name="subTotal">Сумма товаров в корзине</param>
        /// <returns></returns>
-        private static decimal CalculateLeveledDiscount(List<ProductModel> items, decimal subTotal)
+        private static decimal CalculateLeveledDiscount(List<ProductModel> ListProducts, decimal subTotal)
         {
             if (subTotal > 100)
             {
@@ -106,10 +106,10 @@ namespace ConsoleUI
         /// </summary>
         private static void PopulateCartWithDemoData()
         {
-            cart.Items.Add(new ProductModel { ItemName = "Cereal", Price = 3.63M });
-            cart.Items.Add(new ProductModel { ItemName = "Milk", Price = 2.95M });
-            cart.Items.Add(new ProductModel { ItemName = "Strawberries", Price = 7.51M });
-            cart.Items.Add(new ProductModel { ItemName = "Blueberries", Price = 8.84M });
+            cart.ListProductItem.Add(new ProductModel { ItemName = "Cereal", Price = 3.63M });
+            cart.ListProductItem.Add(new ProductModel { ItemName = "Milk", Price = 2.95M });
+            cart.ListProductItem.Add(new ProductModel { ItemName = "Strawberries", Price = 7.51M });
+            cart.ListProductItem.Add(new ProductModel { ItemName = "Blueberries", Price = 8.84M });
         }
 
         
