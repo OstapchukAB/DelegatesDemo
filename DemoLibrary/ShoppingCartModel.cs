@@ -22,11 +22,12 @@ namespace DemoLibrary
         /// <summary>
         /// Расчет итоговой суммы со скидкой
         /// </summary>
-        /// <param name="mentionSubtotal"> Сообщаем покупателю на какую сумму он набрал товаров в корзину</param>
-        /// <param name="calculateDiscountedTotal">здесь итоговая сумма со скидкой</param>
-        /// <param name="tellUserWeAreDiscounting">Сообщение пользователю о применении скидки</param>
+        /// <param name="mentionSubtotal">сообщаем на какую сумму набрано товаров в корзину</param>
+        /// <param name="calculateDiscountedTotal">итоговая сумму со скидкой</param>
+        /// <param name="tellUserWeAreDiscounting">сообщение пользователю о применении скидки</param>
         /// <returns></returns>
-        public decimal GenerateTotal(MentionDiscount mentionSubtotal,
+        public decimal GenerateTotal(
+            MentionDiscount mentionSubtotal,
             Func<List<ProductModel>,decimal,decimal> calculateDiscountedTotal,
             Action<string> tellUserWeAreDiscounting)
         {
