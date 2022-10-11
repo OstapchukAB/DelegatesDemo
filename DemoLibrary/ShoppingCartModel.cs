@@ -18,12 +18,12 @@ namespace DemoLibrary
         /// Список товаров в корзине
         /// </summary>
         public List<ProductModel> Items { get; set; } = new List<ProductModel>();
-        
+
         /// <summary>
-        /// Считаем сумму товаров в корзине и выводим итоговую скидку, подтверждаем скидку
+        /// Расчет итоговой суммы со скидкой
         /// </summary>
-        /// <param name="mentionSubtotal"> Показываем покупателю на какую сумму он набрал товаров и сообщаем ему об этом </param>
-        /// <param name="calculateDiscountedTotal">Расчет итоговой суммы со скидкой</param>
+        /// <param name="mentionSubtotal"> Сообщаем покупателю на какую сумму он набрал товаров в корзину</param>
+        /// <param name="calculateDiscountedTotal">здесь итоговая сумма со скидкой</param>
         /// <param name="tellUserWeAreDiscounting">Сообщение пользователю о применении скидки</param>
         /// <returns></returns>
         public decimal GenerateTotal(MentionDiscount mentionSubtotal,
@@ -35,7 +35,7 @@ namespace DemoLibrary
             mentionSubtotal(subTotal);
 
             
-            tellUserWeAreDiscounting("Вам применена скидка!");
+            tellUserWeAreDiscounting("Скидка применена!");
 
             decimal total = calculateDiscountedTotal(Items, subTotal);
 

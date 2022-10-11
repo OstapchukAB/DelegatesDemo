@@ -22,10 +22,16 @@ namespace ConsoleUI
 
             PopulateCartWithDemoData();
 
-            Console.WriteLine($"Итоговая сумма со скидкой: {cart.GenerateTotal(SubTotalAlert, CalculateLeveledDiscount, AlertUser):C2}");
+            //Корзина №1
+            decimal totalPriceWithDiscount = cart.GenerateTotal(SubTotalAlert, CalculateLeveledDiscount, AlertUser);
+            Console.WriteLine($"Итоговая сумма для корзины: {totalPriceWithDiscount:C2}");
             Console.WriteLine();
+            //*********************
 
-            decimal total = cart.GenerateTotal((subTotal) => Console.WriteLine($"The subtotal for cart 2 is {subTotal:C2}"),
+            //Корзина №2
+            var numberCart = "№2";
+            decimal total = cart.GenerateTotal(
+                (subTotal) => Console.WriteLine($"В корзину {numberCart} набрано товаров на сумму: {subTotal:C2}"),  
                 (products, subTotal) =>
                 {
                     if (products.Count > 3)
@@ -37,26 +43,33 @@ namespace ConsoleUI
                         return subTotal;
                     }
                 },
-                (message) => Console.WriteLine($"Cart 2 Alert: {message}"));
+                (message) => Console.WriteLine($"Для корзины {numberCart}: {message}"));
 
-            Console.WriteLine($"The total for cart 2 is {total:C2}");
+            Console.WriteLine($"Итоговая сумма для корзины {numberCart}: {total:C2}");
             Console.WriteLine();
+            //*********************
+
+
 
             Console.WriteLine();
-            Console.Write("Please press any key to exit the application...");
+            Console.Write("Для выхода нажмите любую клавишу");
             Console.ReadKey();
         }
 
         /// <summary>
-        /// Показываем сумму набранных товаров в корзине и сообщаем об этом
+        /// Сообщаем покупателю на какую сумму он набрал товаров в корзину
         /// </summary>
         /// <param name="subTotal"></param>
         private static void SubTotalAlert(decimal subTotal)
         {
-            Console.WriteLine($"В корзине товаров на сумму: {subTotal:C2}");
+            Console.WriteLine($"В корзину набрано товаров на сумму: {subTotal:C2}");
   
         }
 
+        /// <summary>
+        /// Выводим сообщение покупателю
+        /// </summary>
+        /// <param name="message"></param>
         private static void AlertUser(string message)
         {
             Console.WriteLine(message);
@@ -89,7 +102,7 @@ namespace ConsoleUI
         }
 
         /// <summary>
-        ///  наполнение корзины демонстрационными продуктами с ценами
+        ///  наполняем корзины демонстрационными продуктами
         /// </summary>
         private static void PopulateCartWithDemoData()
         {
